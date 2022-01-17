@@ -6,7 +6,6 @@
 // @match        http://*.reddit.com/*
 // @match        https://*.reddit.com/*
 // @license      GPL-2.0-or-later
-// @icon         https://image.ibb.co/jaCbRp/icons8_reddit_52.png
 // @run-at       document-start
 // ==/UserScript==
  
