@@ -18,72 +18,72 @@
 // ==/UserScript==
 
 (function() {
-    'use strict';
+  'use strict';
 
-    // Your code here...
-
-
-    // find the div，some conditions
-    /*
-    class:
-    ps-fixed z-nav-fixed
-
-    z-index:
-
-    5050 or other value greater than 1000 ???
-
-    p content
-    Your privacy
-
-    Button
-
-    Accept all cookies
-    Customize settings
-
-    */
-
-    var panels = $('.ps-fixed.z-nav-fixed')
-    if (panels.length < 1) return;
-
-    panels.each(function () {
-        var panel = $(this)
-
-        var zindex = panel.css('z-index')
-        if (zindex < 1000) return;
+  // Your code here...
 
 
-        // !!! Hide it
-        panel.css("display", "none")
-        return;
+  // find the div，some conditions
+  /*
+  class:
+  ps-fixed z-nav-fixed
+
+  z-index:
+
+  5050 or other value greater than 1000 ???
+
+  p content
+  Your privacy
+
+  Button
+
+  Accept all cookies
+  Customize settings
+
+  */
+
+  var panels = $('.ps-fixed.z-nav-fixed')
+  if (panels.length < 1) return;
+
+  panels.each(function () {
+      var panel = $(this)
+
+      var zindex = panel.css('z-index')
+      if (zindex < 1000) return;
+
+
+      // !!! Hide it
+      panel.css("display", "none")
+      return;
 
 /*
-     // more conditions ???
-     const keywords = ["Your privacy",
-                      "accept",
-                      "cookie",
-                      "cookies",
-                      ]
-     var pArr = panel.children('p')
+   // more conditions ???
+   const keywords = ["Your privacy",
+                    "accept",
+                    "cookie",
+                    "cookies",
+                    ]
+   var pArr = panel.children('p')
 
-     var matchsArr = []
-     pArr.each(function (){
-       var p = $(this)
-       var text = p.text().toLowerCase()
-       $(keywords).each(function (){
-           debugger
-         var aKeyword = this.toLowerCase()
-         if (text.includes(aKeyword)) {
-          var pair = [text, aKeyword]
-          matchsArr.push(pair)
-         }
-       })
+   var matchsArr = []
+   pArr.each(function (){
+     var p = $(this)
+     var text = p.text().toLowerCase()
+     $(keywords).each(function (){
+         debugger
+       var aKeyword = this.toLowerCase()
+       if (text.includes(aKeyword)) {
+        var pair = [text, aKeyword]
+        matchsArr.push(pair)
+       }
      })
-     console.log(matchsArr)
+   })
+   console.log(matchsArr)
 
 
-     // buttons
+   // buttons
 
- */
+*/
 
-    })
+  })
 })();
