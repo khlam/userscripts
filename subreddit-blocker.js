@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Subreddit blocker
-// @description    Hide given subreddits
+// @description    Hide given subreddits. Only tested on old.reddit.com
 // @author         khlam
 // @match          http://*.reddit.com/*
 // @match          https://*.reddit.com/*
@@ -50,20 +50,74 @@ let subreddits = [
     "memes",
     "vexillologycirclejerk",
     "vexillology",
-    "MaliciousCompliance"
+    "MaliciousCompliance",
+    "Whatcouldgowrong",
+    "facepalm",
+    "shittymoviedetails",
+    "moviedetails",
+    "iamatotalpieceofshit",
+    "sports",
+    "baseball",
+    "nba",
+    "coolguides",
+    "Cringetopia",
+    "PrequelMemes",
+    "blursedimages",
+    "TwoXChromosomes",
+    "ToiletPaperUSA",
+    "mildlyinteresting",
+    "dankmemes",
+    "PoliticalCompassMemes",
+    "marvelstudios",
+    "Genshin_Impact",
+    "CozyPlaces",
+    "dataisbeautiful",
+    "technicallythetruth",
+    "TikTokCringe",
+    "awfuleverything",
+    "AdviceAnimals",
+    "greentext",
+    "IllegallySmolCats",
+    "AnimalsBeingBros",
+    "wholesomememes",
+    "meme",
+    "CrappyDesign",
+    "canada",
+    "confidentlyincorrect",
+    "cats",
+    "IdiotsInCars",
+    "me_irl",
+    "shitposting",
+    "WinStupidPrizes",
+    "dndmemes",
+    "gifsthatkeepongiving",
+    "trashy",
+    "oddlysatisfying",
+    "AbruptChaos",
+    "Eyebleach",
+    "Wellthatsucks",
+    "ShitPostCrusaders",
+    "atheism",
+    "bi_irl",
+    "neoliberal",
+    "nonononoyes",
+    "amcstock",
+    "stocks",
+    "FuckYouKaren",
+    "whenthe",
+    "rarepuppers",
+    "rareinsults"
 ]
 
-let subreddits_lowercase = subreddits.map(e => {
-                                return e.toLowerCase();
-                            })
+let subreddits_lowercase = subreddits.map(e => { return e.toLowerCase() })
   
-let all_threads = document.querySelectorAll("[data-subreddit]");
-console.log(subreddits_lowercase)
+let all_threads = document.querySelectorAll("[data-subreddit]")
+
 all_threads.forEach(thread => {
     let _subreddit = thread.getAttribute('data-subreddit').toLowerCase()
     if (subreddits_lowercase.includes(_subreddit)) {
         console.log("HIDING", thread)
         //thread.innerHTML = `Content from ${_subreddit} hidden.`
-        thread.innerHTML = ""
+        thread.style.display = "none"
     }   
 })
