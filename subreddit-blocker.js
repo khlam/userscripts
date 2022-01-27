@@ -106,7 +106,27 @@ let subreddits = [
     "FuckYouKaren",
     "whenthe",
     "rarepuppers",
-    "rareinsults"
+    "rareinsults",
+    "AnimalsBeingDerps",
+    "WatchPeopleDieInside",
+    "marvelmemes",
+    "SubredditDrama",
+    "HumansBeingBros",
+    "OutOfTheLoop",
+    "KidsAreFuckingStupid",
+    "BeAmazed",
+    "PlayStationPlus",
+    "AnimalCrossing",
+    "BestofRedditorUpdates",
+    "WitchesVsPatriarchy",
+    "SelfAwarewolves",
+    "OldSchoolCool",
+    "Showerthoughts",
+    "BikiniBottomTwitter",
+    "tifu",
+    "sadcringe",
+    "explainlikeimfive",
+    "WorkReform"
 ]
 
 let subreddits_lowercase = subreddits.map(e => { return e.toLowerCase() })
