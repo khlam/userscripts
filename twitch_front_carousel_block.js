@@ -7,6 +7,7 @@
 // @match        https://www.twitch.tv/
 // @grant        none
 // @run-at       document-end
+// @license     MIT
 // ==/UserScript==
 
 if (window.location.href === "https://www.twitch.tv/" || window.location.href === "http://www.twitch.tv/" ) {
