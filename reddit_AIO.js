@@ -1,10 +1,14 @@
 // ==UserScript==
-// @name           subreddit_blocker
-// @description    Hides all posts from a subreddit by name (not case sensitive) or by regex.
-// @author         khlam
-// @match          http://*.reddit.com/*
-// @match          https://*.reddit.com/*
-// @version        0.0
+// @name         reddit_AIO
+// @version      0.0
+// @description  Hides all posts from a subreddit by name (not case sensitive) or by regex, removes custom subreddit css, and force old reddit
+// @author       khlam
+// @match        http://*.reddit.com/*
+// @match        https://*.reddit.com/*
+// @require      https://gist.githubusercontent.com/khlam/f85ee658005a45a99ba0147124c09c38/raw/704f92f52d7c4c1ed8e71f2c9311b46c2e6ea3cc/jQuery.v3.6.0
+/* globals jQuery, $ */
+// @run-at       document-end
+// @grant        none
 // ==/UserScript==
 
 const regex = [/porn/, /meme/, /anime/, /fucking/, /circlejerk/, /twitter/, /ask/, /comedy/, /tiktok/]
@@ -172,3 +176,22 @@ all_threads.forEach(thread => {
         thread.style.display = "none"
     }
 })
+
+// force old reddit | by: /u/101743
+var url = window.location.host;
+if (url.match("old.reddit.com") === null) {
+    url = window.location.href;
+    if  (url.match("//www.reddit") !== null){
+        url = url.replace("//www.reddit", "//old.reddit");
+    } else {
+    	return;
+    }
+    //console.log(url);
+    window.location.replace(url);
+}
+
+// remove subreddit custom css
+(function() { 
+    'use strict';
+    $('link[rel=stylesheet][title="applied_subreddit_stylesheet"]').remove()
+})();
