@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         reddit_AIO
 // @version      0.0
-// @description  Hides all posts from a subreddit by name (not case sensitive) or by regex, removes custom subreddit css, and force old reddit
+// @description  Hides all posts from a subreddit by name (not case sensitive) or by regex, removes custom subreddit css, and force old reddit.
 // @author       khlam
 // @match        http://*.reddit.com/*
 // @match        https://*.reddit.com/*

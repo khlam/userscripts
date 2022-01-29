@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         twitch_front_carousel_block
 // @version      0.0
-// @description  Removes twitch frontpage carousel
+// @description  Blocks twitch frontpage autoplaying stream by setting its source to null.
 // @author       khlam
 // @match        http://www.twitch.tv/
 // @match        https://www.twitch.tv/
