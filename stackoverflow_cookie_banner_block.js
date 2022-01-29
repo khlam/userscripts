@@ -1,6 +1,5 @@
 // ==UserScript==
-// @name         Hide stackoverflow.com privacy panel
-// @name:zh-CN   StackoverflowCookie
+// @name         stackoverflow_cookie_banner_block
 // @version      0.5
 // @description  Many websites show panel on the left down corner to ask us to accept cookies. But it will connect google API which is NOT reachable from our country,
 //               and the panel will never disappear. This simple script will hide the panel directly without any tips!

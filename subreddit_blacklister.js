@@ -1,15 +1,16 @@
 // ==UserScript==
-// @name           Subreddit blocker
-// @description    Hide given subreddits. Only tested on old.reddit.com
+// @name           subreddit_blocker
+// @description    Hides all posts from a subreddit by name (not case sensitive) or by regex.
 // @author         khlam
 // @match          http://*.reddit.com/*
 // @match          https://*.reddit.com/*
-// @version        1.0
+// @version        0.0
 // ==/UserScript==
 
-let subreddits = [
+const regex = [/porn/, /meme/, /anime/, /fucking/, /circlejerk/, /twitter/, /ask/, /comedy/, /tiktok/]
+
+const blacklisted_subs = [ // not case sensitive
     "MadeMeSmile",
-    "AskReddit",
     "funny",
     "Damnthatsinteresting",
     "mildlyinfuriating",
@@ -20,9 +21,7 @@ let subreddits = [
     "PublicFreakout",
     "HermanCainAward",
     "insaneparents",
-    "TooAfraidToAsk",
     "NoStupidQuestions",
-    "MapPorn",
     "antiwork",
     "technology",
     "nextfuckinglevel",
@@ -47,8 +46,6 @@ let subreddits = [
     "PoliticalHumor",
     "NatureIsFuckingLit",
     "TrueOffMyChest",
-    "memes",
-    "vexillologycirclejerk",
     "vexillology",
     "MaliciousCompliance",
     "Whatcouldgowrong",
@@ -61,13 +58,10 @@ let subreddits = [
     "nba",
     "coolguides",
     "Cringetopia",
-    "PrequelMemes",
     "blursedimages",
     "TwoXChromosomes",
     "ToiletPaperUSA",
     "mildlyinteresting",
-    "dankmemes",
-    "PoliticalCompassMemes",
     "marvelstudios",
     "Genshin_Impact",
     "CozyPlaces",
@@ -79,8 +73,6 @@ let subreddits = [
     "greentext",
     "IllegallySmolCats",
     "AnimalsBeingBros",
-    "wholesomememes",
-    "meme",
     "CrappyDesign",
     "canada",
     "confidentlyincorrect",
@@ -89,7 +81,6 @@ let subreddits = [
     "me_irl",
     "shitposting",
     "WinStupidPrizes",
-    "dndmemes",
     "gifsthatkeepongiving",
     "trashy",
     "oddlysatisfying",
@@ -109,7 +100,6 @@ let subreddits = [
     "rareinsults",
     "AnimalsBeingDerps",
     "WatchPeopleDieInside",
-    "marvelmemes",
     "SubredditDrama",
     "HumansBeingBros",
     "OutOfTheLoop",
@@ -122,22 +112,63 @@ let subreddits = [
     "SelfAwarewolves",
     "OldSchoolCool",
     "Showerthoughts",
-    "BikiniBottomTwitter",
     "tifu",
     "sadcringe",
     "explainlikeimfive",
-    "WorkReform"
+    "WorkReform",
+    "LifeProTips",
+    "LateStageCapitalism",
+    "byebyejob",
+    "WhatsWrongWithYourDog",
+    "LeopardsAteMyFace",
+    "ABoringDystopia",
+    "Instagramreality",
+    "Zoomies",
+    "maybemaybemaybe",
+    "assholedesign",
+    "woahdude",
+    "hmm",
+    "UNBGBBIIVCHIDCTIICBG",
+    "natureismetal",
+    "ThatsInsane",
+    "WhatsWrongWithYourCat",
+    "AbsoluteUnits",
+    "therewasanattempt",
+    "unpopularopinion",
+    "Catswithjobs",
+    "perfectlycutscreams",
+    "JoeRogan",
+    "YouShouldKnow",
+    "gatekeeping",
+    "LivestreamFail",
+    "Bitcoin",
+    "MurderedByAOC",
+    "BrandNewSentence",
+    "ThatLookedExpensive",
+    "UpliftingNews",
+    "worldnewsvideo",
+    "clevercomebacks",
+    "instant_regret",
+    "FunnyandSad",
+    "onguardforthee",
+    "blursed_videos",
+    "Perfectfit",
+    "bonehurtingjuice",
+    "SuddenlyGay",
+    "im14andthisisdeep",
 ]
 
-let subreddits_lowercase = subreddits.map(e => { return e.toLowerCase() })
-  
+let blacklisted_subs_lower = blacklisted_subs.map(e => { return e.toLowerCase() }) // all blacklisted subreddits to lowercase
+
 let all_threads = document.querySelectorAll("[data-subreddit]")
 
 all_threads.forEach(thread => {
-    let _subreddit = thread.getAttribute('data-subreddit').toLowerCase()
-    if (subreddits_lowercase.includes(_subreddit)) {
+    let this_sub = thread.getAttribute('data-subreddit').toLowerCase() // post's subreddit to lowercase
+
+    // if subreddit is in blacklist or if subreddit matches regex then hide it
+    if ((blacklisted_subs_lower.includes(this_sub) === true) || regex.some(function(r) { return r.test(this_sub)}) === true) { 
         console.log("HIDING", thread)
-        //thread.innerHTML = `Content from ${_subreddit} hidden.`
+        //thread.innerHTML = `Content from ${this_sub} hidden.`
         thread.style.display = "none"
-    }   
+    }
 })
