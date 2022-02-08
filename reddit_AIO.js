@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 const regex = [] // put your regex block here, comma seperated. See example:
-// const regex = [/news/, /memes/] // <--- will block /r/worldnews, /r/news, /r/meme, and /r/memes
+// const regex = [/news/, /meme/] // <--- will block /r/worldnews, /r/news, /r/meme, and /r/memes
 
 const blacklisted_subs = [] // put your specific subreddits to never show posts here, comma separated. See example:
 // const blacklisted_subs = ["worldnews"] // <--- will block all posts from /r/worldnews, not case sensitive
