@@ -27,4 +27,5 @@ if (window.location.href === "https://www.twitch.tv/" || window.location.href ==
     }, 100)
 }
 
-
+// remove twitch begging for you to sign in
+document.getElementById("twilight-sticky-footer-root").style.display = "none"
