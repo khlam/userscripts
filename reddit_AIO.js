@@ -51,3 +51,11 @@ if (url.match("old.reddit.com") === null) {
     'use strict';
     $('link[rel=stylesheet][title="applied_subreddit_stylesheet"]').remove()
 })();
+
+// remove signup banner
+let signup_banner = document.getElementsByClassName("listingsignupbar infobar")[0]
+signup_banner.style.display = "none"
+
+// remove right column premium banner
+let premium_banner = document.getElementsByClassName("premium-banner-outer")[0]
+premium_banner.style.display = "none"
