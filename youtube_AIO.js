@@ -4,10 +4,13 @@
 // @version		0.0
 // @match       http://*.youtube.com/*
 // @match       https://*.youtube.com/*
-// @run-at		document-end
 // @grant		none
 // @license     MIT
 // ==/UserScript==
+
+// fix link auto-redirect. source: https://greasyfork.org/en/scripts/4298-youtube-url-cleaner/code
+var newurl = "https://www.youtube.com/watch?"+document.URL.match(/v\=[^&]*/g); 
+if (newurl != document.URL) location.replace(newurl);
 
 // removes youtube tv ad card
 try {
@@ -38,7 +41,3 @@ function main() {
 window.addEventListener("yt-navigate-finish", main)
 
 main()
-
-
-
-
