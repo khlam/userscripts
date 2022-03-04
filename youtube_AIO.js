@@ -4,6 +4,7 @@
 // @version		0.0
 // @match       http://*.youtube.com/*
 // @match       https://*.youtube.com/*
+// @exclude     https://www.youtube.com/feed/subscriptions
 // @grant		none
 // @license     MIT
 // ==/UserScript==
@@ -23,21 +24,12 @@ try {
 }catch(e){}
 
 // auto redirect youtube homepage to subscriptions
-const location = window.location
-const rePathname = /^\/(?:artist|channel|show|user)\/[A-Za-z0-9_-]*\/?$/
-const reSearch = /^\?(?:annotation_id|app|feature|noredirect|reload|tab)(?:=.*)?$/
-
-function main() {
-    if (location.search || location.hash) {
-        if (reSearch.test(location.search)) location.search = "";
-        if (location.search === "") main();
-    }
-    else {
-        if (location.pathname === "/") location.replace("feed/subscriptions");
-        if (rePathname.test(location.pathname)) location.replace(location + "/videos");
+function redirect_to_subs() {
+    if (window.location.href === "https://www.youtube.com/" || window.location.href === "http://www.youtube.com/" ) {
+        window.location.href = "https://www.youtube.com/feed/subscriptions"
     }
 }
 
-window.addEventListener("yt-navigate-finish", main)
+window.addEventListener("yt-navigate-finish", redirect_to_subs)
 
-main()
+redirect_to_subs()
