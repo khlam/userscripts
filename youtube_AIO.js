@@ -15,7 +15,7 @@ if (newurl != document.URL) location.replace(newurl);
 
 // removes youtube tv ad card
 try {
-    let dialog = document.getElementsByTagName("tp-yt-paper-dialog")
+    let dialog = document.getElementsByTagName("ytd-mealbar-promo-renderer")
     if (dialog) {
         dialog.forEach(e => {
             thread.style.display = "none"
