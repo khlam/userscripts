@@ -11,7 +11,8 @@ Tested with [violentmonkey (github)](https://github.com/violentmonkey/violentmon
 | twitch.tv | [twitch_front_carousel_block.js](twitch_front_carousel_block.js) | Blocks twitch frontpage autoplaying stream by setting its source to null. |
 | youtube.com | [youtube_AIO.js](youtube_AIO.js) | Removes youtube tv ad card and auto redirect youtube homepage to subscriptions. |
 | mail.google.com | [gmail_title.js](gmail_title.js) | Hides gmail address in tab title. |
-
+| twitter.com | [twitter_popup.js](twitter_popup.js) | Removes twitter sign up popup
+ 
 ### misc
 Q: "Why use these scripts when browser addon *x* has the same feature?"
 
