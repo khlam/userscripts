@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         twitch_front_carousel_block
 // @version      0.0
-// @description  Blocks twitch frontpage auto-playing stream by setting its source to null. Refresh page if stream you want to play has an error.
+// @description  Blocks twitch frontpage auto-playing stream by setting its source to null.
 // @author       khlam
-// @match        http://*.twitch.tv/*
-// @match        https://*.twitch.tv/*
+// @match        http://*.twitch.tv/
+// @match        https://*.twitch.tv/
 // @grant        none
 // @license      MIT
 // ==/UserScript==
@@ -16,11 +16,8 @@ const observer = new MutationObserver(function() {
         let interval = setInterval(() => {
             let video = document.querySelector("video")
             console.log(i)
-            if (video.getAttribute('src') != null) {
-                console.log("setting video src to null...")
-                video.setAttribute('src', null)
-                clearInterval(interval)
-            }
+            video.setAttribute('src', null)
+
             i += 1
             if (i === 100) {
                 clearInterval(interval)
